@@ -57,26 +57,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define SI_Pin GPIO_PIN_1
-#define SI_GPIO_Port GPIOC
-#define USART_TX_Pin GPIO_PIN_2
-#define USART_TX_GPIO_Port GPIOA
+#define CS_Pin GPIO_PIN_0
+#define CS_GPIO_Port GPIOA
+#define RESET_Pin GPIO_PIN_1
+#define RESET_GPIO_Port GPIOA
+#define A0_Pin GPIO_PIN_2
+#define A0_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
-#define SCL_Pin GPIO_PIN_10
-#define SCL_GPIO_Port GPIOB
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
-#define RESET_Pin GPIO_PIN_4
-#define RESET_GPIO_Port GPIOB
-#define A0_Pin GPIO_PIN_5
-#define A0_GPIO_Port GPIOB
-#define CS_Pin GPIO_PIN_8
-#define CS_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

@@ -29,8 +29,8 @@ License along with this library.
 #define BLACK 1
 #define WHITE 0
 
-extern SPI_HandleTypeDef hspi2;
-#define SPI_PORT hspi2
+extern SPI_HandleTypeDef hspi1;
+#define SPI_PORT hspi1
 
 #define CMD_DISPLAY_OFF   0xAE
 #define CMD_DISPLAY_ON    0xAF
