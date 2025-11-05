@@ -120,10 +120,23 @@ int main(void)
 	  char system[] = "ARSALAN ALI";
 	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(system)/2)*6),  (LCD_HEIGHT/3)-15, system); */
 
-	  if()
-	  char test[] = "Magnet Detected";
-	  ST7565_drawstring_anywhere(40, 20, test);
-	  updateDisplay();
+	  if(HAL_GPIO_ReadPin(Hall2_GPIO_Port, Hall2_Pin) == 0){
+		  char test[] = "Magnet Detected";
+		  ST7565_drawstring_anywhere(40, 20, test);
+		  updateDisplay();
+	  }
+	  else{
+		  char test[] = ":(                             ";
+		  ST7565_drawstring_anywhere(40, 20, test);
+		  updateDisplay();
+
+	  }
+
+
+
+
+
+
 
 
 //      HAL_GPIO_TogglePin(GPIOC, Blue_Pin);
@@ -304,6 +317,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(USART_RX_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Hall2_Pin Hall1_Pin */
+  GPIO_InitStruct.Pin = Hall2_Pin|Hall1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
