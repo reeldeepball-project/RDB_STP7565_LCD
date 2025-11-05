@@ -120,15 +120,18 @@ int main(void)
 	  char system[] = "ARSALAN ALI";
 	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(system)/2)*6),  (LCD_HEIGHT/3)-15, system); */
 
-	  char test[] = "A";
-	  ST7565_drawstring_anywhere(0, 0, test);
+	  if()
+	  char test[] = "Magnet Detected";
+	  ST7565_drawstring_anywhere(40, 20, test);
 	  updateDisplay();
-      HAL_GPIO_TogglePin(GPIOC, Blue_Pin);
-      HAL_Delay(500);
-      HAL_GPIO_TogglePin(GPIOC, Red_Pin);
-      HAL_Delay(500);
-      HAL_GPIO_TogglePin(GPIOC, Green_Pin);
-      HAL_Delay(500);
+
+
+//      HAL_GPIO_TogglePin(GPIOC, Blue_Pin);
+//      HAL_Delay(500);
+//      HAL_GPIO_TogglePin(GPIOC, Red_Pin);
+//      HAL_Delay(500);
+//      HAL_GPIO_TogglePin(GPIOC, Green_Pin);
+//      HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
