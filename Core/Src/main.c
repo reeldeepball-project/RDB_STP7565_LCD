@@ -122,10 +122,13 @@ int main(void)
 
 	  char test[] = "A";
 	  ST7565_drawstring_anywhere(0, 0, test);
-
-
-
 	  updateDisplay();
+      HAL_GPIO_TogglePin(GPIOC, Blue_Pin);
+      HAL_Delay(500);
+      HAL_GPIO_TogglePin(GPIOC, Red_Pin);
+      HAL_Delay(500);
+      HAL_GPIO_TogglePin(GPIOC, Green_Pin);
+      HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -272,7 +275,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, Blue_Pin|Green_Pin|Red_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, CS_Pin|RESET_Pin|A0_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : Blue_Pin Green_Pin Red_Pin */
+  GPIO_InitStruct.Pin = Blue_Pin|Green_Pin|Red_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : CS_Pin RESET_Pin A0_Pin */
   GPIO_InitStruct.Pin = CS_Pin|RESET_Pin|A0_Pin;
