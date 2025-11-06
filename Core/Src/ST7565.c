@@ -121,7 +121,7 @@ void ST7565_drawstring_anywhere(uint8_t x, uint8_t y, const char* str)
   uint8_t i = 0;
   while (str[i] != '\0') {
 	  ST7565_drawchar_anywhere(x, y, str[i]);
-    x += 6; // Adjust the x-coordinate to leave space between characters
+    x += 6;                                            // Adjust the x-coordinate to leave space between characters
     i++;
   }
 }
