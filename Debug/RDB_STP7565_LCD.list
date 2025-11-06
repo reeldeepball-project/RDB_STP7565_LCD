@@ -843,7 +843,7 @@ void ST7565_init(void)
 
 	// set lcd operating voltage (regulator resistor, ref voltage resistor)
 	ST7565_command(CMD_SET_RESISTOR_RATIO | 0x4);
- 800082e:	2024      	movs	r0, #36	@ 0x24
+ 800082e:	201c      	movs	r0, #28
  8000830:	f000 f81e 	bl	8000870 <ST7565_command>
 
 
@@ -860,8 +860,8 @@ void ST7565_init(void)
  8000842:	f000 f815 	bl	8000870 <ST7565_command>
 
 
-	ST7565_set_brightness(0x28);        //recommended brightness
- 8000846:	2028      	movs	r0, #40	@ 0x28
+	ST7565_set_brightness(0x26);        //recommended brightness
+ 8000846:	2026      	movs	r0, #38	@ 0x26
  8000848:	f000 f86a 	bl	8000920 <ST7565_set_brightness>
 
 

@@ -375,7 +375,7 @@ void ST7565_init(void)
 	ST7565_command(CMD_SET_COM_REVERSE);
 
 
-	ST7565_set_brightness(0x28);        //recommended brightness
+	ST7565_set_brightness(0x26);        //recommended brightness
 
 
 	memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
