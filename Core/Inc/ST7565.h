@@ -35,12 +35,13 @@ extern SPI_HandleTypeDef hspi1;
 #define CMD_DISPLAY_OFF   0xAE
 #define CMD_DISPLAY_ON    0xAF
 
-#define CMD_SET_DISP_START_LINE  0x40
+#define CMD_SET_DISP_START_LINE  0x10
 #define CMD_SET_PAGE  0xB0
 
 #define CMD_SET_COLUMN_UPPER  0x10
 #define CMD_SET_COLUMN_LOWER  0x00
 
+//these commands adjust the orientation of the screen, allowing flipping and mirroring
 #define CMD_SET_ADC_NORMAL  0xA0
 #define CMD_SET_ADC_REVERSE 0xA1
 
@@ -50,7 +51,7 @@ extern SPI_HandleTypeDef hspi1;
 #define CMD_SET_ALLPTS_NORMAL 0xA4
 #define CMD_SET_ALLPTS_ON  0xA5
 #define CMD_SET_BIAS_9 0xA2 
-#define CMD_SET_BIAS_7 0xA3
+#define CMD_SET_BIAS_9 0xA2
 
 #define CMD_RMW  0xE0
 #define CMD_RMW_CLEAR 0xEE

@@ -12,8 +12,8 @@
 ../Core/Src/ST7565.c:296:6:updateDisplay	16	static
 ../Core/Src/ST7565.c:316:6:ST7565_setpixel	24	static
 ../Core/Src/ST7565.c:330:6:ST7565_init	8	static
-../Core/Src/ST7565.c:387:9:ST7565_command	32	static
-../Core/Src/ST7565.c:399:9:ST7565_data	32	static
-../Core/Src/ST7565.c:410:6:ST7565_set_brightness	16	static
-../Core/Src/ST7565.c:416:6:ST7565_clear	16	static
-../Core/Src/ST7565.c:436:6:pin_config	48	static
+../Core/Src/ST7565.c:389:9:ST7565_command	32	static
+../Core/Src/ST7565.c:401:9:ST7565_data	32	static
+../Core/Src/ST7565.c:412:6:ST7565_set_brightness	16	static
+../Core/Src/ST7565.c:418:6:ST7565_clear	16	static
+../Core/Src/ST7565.c:438:6:pin_config	48	static

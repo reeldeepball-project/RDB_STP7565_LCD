@@ -120,20 +120,24 @@ int main(void)
 	  char system[] = "ARSALAN ALI";
 	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(system)/2)*6),  (LCD_HEIGHT/3)-15, system); */
 
-	  if(HAL_GPIO_ReadPin(Hall2_GPIO_Port, Hall2_Pin) == 0){
-		  char test[] = "Magnet Detected";
-		  ST7565_drawstring_anywhere(40, 20, test);
-		  updateDisplay();
-	  }
-	  else{
-		  char test[] = ":(                             ";
-		  ST7565_drawstring_anywhere(40, 20, test);
-		  updateDisplay();
+//	  if(HAL_GPIO_ReadPin(Hall2_GPIO_Port, Hall2_Pin) == 0){
+//		  char test[] = "Magnet Detected";
+//		  ST7565_drawstring_anywhere(40, 20, test);
+//		  updateDisplay();
+//	  }
+//	  else{
+//		  char test[] = ":(                             ";
+//		  ST7565_drawstring_anywhere(40, 20, test);
+//		  updateDisplay();
+//
+//	  }
 
-	  }
+	  char test[] = "Magnet Detected";
+	  ST7565_drawstring_anywhere(20, 20, test);
+	  updateDisplay();
 
-
-
+//	  ST7565_command(0xA5); HAL_Delay(300);
+//	  ST7565_command(0xA4);
 
 
 

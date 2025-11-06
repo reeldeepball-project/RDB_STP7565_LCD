@@ -67,7 +67,7 @@ void ST7565_drawbitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, u
 	  unsigned Row_Address=0;
 	  unsigned int k,i;
 
-	  ST7565_command(CMD_SET_ADC_NORMAL);
+	  ST7565_command(CMD_SET_ADC_REVERSE);
 	  ST7565_command(CMD_SET_COM_REVERSE);
 	  for(k=0; k<8; k++)
 	  {
@@ -295,8 +295,8 @@ void ST7565_fillcircle(uint8_t x0, uint8_t y0, uint8_t r, uint8_t color)
 // Update the physical display with the contents of the display buffer
 void updateDisplay()
 {
-	ST7565_command(CMD_SET_ADC_NORMAL);
-	ST7565_command(CMD_SET_COM_NORMAL);
+	ST7565_command(CMD_SET_ADC_REVERSE);
+	ST7565_command(CMD_SET_COM_REVERSE);
     ST7565_command(CMD_SET_DISP_START_LINE);
   for (uint8_t page = 0; page < LCD_HEIGHT / 8; page++) {
     // Set the page address
@@ -341,7 +341,7 @@ void ST7565_init(void)
 	HAL_GPIO_WritePin(RESET_GPIO_Port, RESET_Pin, GPIO_PIN_SET);
 
 	// LCD bias select
-	ST7565_command(CMD_SET_BIAS_7);
+	ST7565_command(CMD_SET_BIAS_9);
 	// ADC select
 	ST7565_command(CMD_SET_ADC_REVERSE);
 	// SHL select
@@ -350,7 +350,7 @@ void ST7565_init(void)
 	ST7565_command(CMD_SET_DISP_START_LINE);
 
 	// turn on voltage converter (VC=1, VR=0, VF=0)
-	ST7565_command(CMD_SET_POWER_CONTROL | 0x4);
+	ST7565_command(CMD_SET_POWER_CONTROL | 0x2C);
 	// wait for 50% rising
 	HAL_Delay(50);          // Software Reset Sequence
 
@@ -361,7 +361,7 @@ void ST7565_init(void)
 
 	// turn on voltage follower (VC=1, VR=1, VF=1)
 	ST7565_command(CMD_SET_POWER_CONTROL | 0x7);
-	// wait
+	//wait
 	HAL_Delay(10);          // Software Reset Sequence
 
 	// set lcd operating voltage (regulator resistor, ref voltage resistor)
@@ -375,12 +375,14 @@ void ST7565_init(void)
 	ST7565_command(CMD_SET_COM_REVERSE);
 
 
-	ST7565_set_brightness(0xE0);
+	ST7565_set_brightness(0x28);        //recommended brightness
 
 
 	memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
 
 	ST7565_updateBoundingBox(0, 0, LCD_WIDTH, LCD_HEIGHT);
+
+
 }
 
 
