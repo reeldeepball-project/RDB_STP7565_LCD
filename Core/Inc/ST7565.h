@@ -97,3 +97,4 @@ extern SPI_HandleTypeDef hspi1;
   void pin_config();
   void ST7565_drawchar_anywhere(uint8_t x, uint8_t y, char c);
   void ST7565_drawstring_anywhere(uint8_t x, uint8_t y, const char* str);
+  void ST7565_drawbitmapNew(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, uint8_t h, uint8_t color);

@@ -50,7 +50,6 @@ static uint8_t xUpdateMin, xUpdateMax, yUpdateMin, yUpdateMax;
 #endif
 
 
-
 static void ST7565_updateBoundingBox(uint8_t xmin, uint8_t ymin, uint8_t xmax, uint8_t ymax)
 {
 #ifdef enablePartialUpdate
@@ -87,6 +86,21 @@ void ST7565_drawbitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, u
 	  }
   ST7565_updateBoundingBox(x, y, x+w, y+h);
 }
+
+void ST7565_drawbitmapNew(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, uint8_t h, uint8_t color) {
+  uint8_t i, j;
+  for (j=0; j<h; j++) {
+    for (i=0; i<w; i++ ) {
+      if (bitmap[i + (j/8) * w] & (1<<(j%8))) {
+        ST7565_setpixel(x+i, y+j, color);
+      }
+    }
+  }
+  ST7565_updateBoundingBox(x, y, x+w, y+h);
+}
+
+// much faster to put the test here, since we've already sorted the points
+
 
 void ST7565_drawstring(uint8_t x, uint8_t line, char *c)
 {
@@ -143,6 +157,8 @@ void ST7565_drawchar_anywhere(uint8_t x, uint8_t y, char c)
 	}
   }
 }
+
+
 
 
 

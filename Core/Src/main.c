@@ -23,6 +23,8 @@
 /* USER CODE BEGIN Includes */
 #include<string.h>
 #include"ST7565.h"
+#include"testFont.h"
+#include"testMap0.h"
 
 /* USER CODE END Includes */
 
@@ -132,12 +134,17 @@ int main(void)
 //
 //	  }
 
-	  char test[] = "Magnet Detected";
-	  ST7565_drawstring_anywhere(20, 20, test);
-	  updateDisplay();
+//	  char test[] = "Magnet Detected";
+//	  ST7565_drawstring_anywhere(20, 20, test);
+//	  updateDisplay();
 
 //	  ST7565_command(0xA5); HAL_Delay(300);
 //	  ST7565_command(0xA4);
+//	  ST7565_clear();
+	  ST7565_drawbitmapNew(0, 0, B, 44, 64, 1);
+	  ST7565_drawbitmapNew(50, 0, B, 44, 64, 1);
+	  updateDisplay();
+
 
 
 
