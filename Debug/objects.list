@@ -1,3 +1,4 @@
+"./Core/Src/RDB_Functions.o"
 "./Core/Src/ST7565.o"
 "./Core/Src/glcdfont.o"
 "./Core/Src/main.o"
