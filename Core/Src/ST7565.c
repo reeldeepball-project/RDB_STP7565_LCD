@@ -359,7 +359,7 @@ void ST7565_init(void)
 	// LCD bias select
 	ST7565_command(CMD_SET_BIAS_9);
 	// ADC select
-	ST7565_command(CMD_SET_ADC_REVERSE);
+	ST7565_command(CMD_SET_ADC_NORMAL);
 	// SHL select
 	ST7565_command(CMD_SET_COM_REVERSE);
 	// Initial display line

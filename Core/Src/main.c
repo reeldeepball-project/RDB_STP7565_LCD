@@ -17,14 +17,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <RDB_Depth_Digits.h>
+#include <RDB_Depth_Digits_64.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include<string.h>
 #include"ST7565.h"
-
+#include"RDB_depth_digits_30x50.h"
+#include"RDB_depth_digits_35x52_Arial.h"
+#include"RDB_depth_digits_36x58.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -139,11 +141,11 @@ int main(void)
 
 //	  ST7565_command(0xA5); HAL_Delay(300);
 //	  ST7565_command(0xA4);
- // ST7565_clear();
+      //ST7565_clear();
 
-	  ST7565_drawbitmapNew(100,-10, BM8, 40, 64, 1);
-	  ST7565_drawbitmapNew(45, 0, BM8, 40, 64, 1);
-	  ST7565_drawbitmapNew(90, 10, BM8, 40, 64, 1);
+	  ST7565_drawbitmapNew(10,0, BM6_36x58_block, 36, 58, 1);
+	  ST7565_drawbitmapNew(50, 0, BM7_36x58_block, 36, 58, 1);
+	  ST7565_drawbitmapNew(90, 0, BM7_36x58_block, 36, 58, 1);
 	  updateDisplay();
 
 	 // ST7565_drawbitmapNew(100, 0, BM9, 45, 64, 1);
