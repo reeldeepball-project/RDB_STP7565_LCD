@@ -135,7 +135,7 @@ void ST7565_drawstring_anywhere(uint8_t x, uint8_t y, const char* str)
   uint8_t i = 0;
   while (str[i] != '\0') {
 	  ST7565_drawchar_anywhere(x, y, str[i]);
-    x += 6; // Adjust the x-coordinate to leave space between characters
+    x += 6;                                            // Adjust the x-coordinate to leave space between characters
     i++;
   }
 }
@@ -391,7 +391,7 @@ void ST7565_init(void)
 	ST7565_command(CMD_SET_COM_REVERSE);
 
 
-	ST7565_set_brightness(0x28);        //recommended brightness
+	ST7565_set_brightness(0x26);        //recommended brightness
 
 
 	memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer

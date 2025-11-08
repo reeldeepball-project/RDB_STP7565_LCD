@@ -784,8 +784,13 @@ void ST7565_init(void)
 
 	// set lcd operating voltage (regulator resistor, ref voltage resistor)
 	ST7565_command(CMD_SET_RESISTOR_RATIO | 0x4);
+<<<<<<< HEAD
  80007de:	2024      	movs	r0, #36	@ 0x24
  80007e0:	f000 f81e 	bl	8000820 <ST7565_command>
+=======
+ 800082e:	201c      	movs	r0, #28
+ 8000830:	f000 f81e 	bl	8000870 <ST7565_command>
+>>>>>>> branch 'master' of https://github.com/reeldeepball-project/RDB_STP7565_LCD
 
 
 	ST7565_command(CMD_DISPLAY_ON);
@@ -801,9 +806,15 @@ void ST7565_init(void)
  80007f2:	f000 f815 	bl	8000820 <ST7565_command>
 
 
+<<<<<<< HEAD
 	ST7565_set_brightness(0x28);        //recommended brightness
  80007f6:	2028      	movs	r0, #40	@ 0x28
  80007f8:	f000 f86a 	bl	80008d0 <ST7565_set_brightness>
+=======
+	ST7565_set_brightness(0x26);        //recommended brightness
+ 8000846:	2026      	movs	r0, #38	@ 0x26
+ 8000848:	f000 f86a 	bl	8000920 <ST7565_set_brightness>
+>>>>>>> branch 'master' of https://github.com/reeldeepball-project/RDB_STP7565_LCD
 
 
 	memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
