@@ -139,16 +139,18 @@ int main(void)
 
 //	  ST7565_command(0xA5); HAL_Delay(300);
 //	  ST7565_command(0xA4);
-//	  ST7565_clear();
+ // ST7565_clear();
 
-	  ST7565_drawbitmapNew(0, 0, BM9, 40, 64, 1);
+	  ST7565_drawbitmapNew(100,-10, BM8, 40, 64, 1);
+	  ST7565_drawbitmapNew(45, 0, BM8, 40, 64, 1);
+	  ST7565_drawbitmapNew(90, 10, BM8, 40, 64, 1);
 	  updateDisplay();
 
-	  ST7565_drawbitmapNew(50, 0, BM9, 45, 64, 1);
-	  updateDisplay();
+	 // ST7565_drawbitmapNew(100, 0, BM9, 45, 64, 1);
+	 // updateDisplay();
 
-	  ST7565_drawbitmapNew(100, 0, BM9, 45, 64, 1);
-	  updateDisplay();
+
+
 
 
 
