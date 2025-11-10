@@ -1,6 +1,6 @@
 Core/Src/RDB_Functions.o: ../Core/Src/RDB_Functions.c \
- ../Core/Inc/ST7565.h ../Core/Inc/main.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ ../Core/Inc/RDB_depth_digits_36x58.h ../Core/Inc/ST7565.h \
+ ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -27,6 +27,7 @@ Core/Src/RDB_Functions.o: ../Core/Src/RDB_Functions.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Core/Inc/ST7565.h
+../Core/Inc/RDB_depth_digits_36x58.h:
 ../Core/Inc/ST7565.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:

@@ -20,13 +20,13 @@
 #include <RDB_Depth_Digits_64.h>
 #include "main.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include<string.h>
 #include"ST7565.h"
-#include"RDB_depth_digits_30x50.h"
-#include"RDB_depth_digits_35x52_Arial.h"
 #include"RDB_depth_digits_36x58.h"
+#include"RDB_Functions.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -113,66 +113,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
-	  /*char tubewell[] = "This program is";
-	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(tubewell)/2)*6), (LCD_HEIGHT*3/3)-15, tubewell);
-	  char monitoring[] = "Developed by: ";
-	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(monitoring)/2)*6),  (LCD_HEIGHT*2/3)-15, monitoring);
-	  char system[] = "ARSALAN ALI";
-	  ST7565_drawstring_anywhere((LCD_WIDTH/2)-((strlen(system)/2)*6),  (LCD_HEIGHT/3)-15, system); */
+   countTestRDBlcd();
 
-//	  if(HAL_GPIO_ReadPin(Hall2_GPIO_Port, Hall2_Pin) == 0){
-//		  char test[] = "Magnet Detected";
-//		  ST7565_drawstring_anywhere(40, 20, test);
-//		  updateDisplay();
-//	  }
-//	  else{
-//		  char test[] = ":(                             ";
-//		  ST7565_drawstring_anywhere(40, 20, test);
-//		  updateDisplay();
-//
-//	  }
-
-//	  char test[] = "Magnet Detected";
-//	  ST7565_drawstring_anywhere(20, 20, test);
-//	  updateDisplay();
-
-//	  ST7565_command(0xA5); HAL_Delay(300);
-//	  ST7565_command(0xA4);
-      //ST7565_clear();
-
-	  ST7565_drawbitmapNew(10,0, BM6_36x58_block, 36, 58, 1);
-	  ST7565_drawbitmapNew(50, 0, BM7_36x58_block, 36, 58, 1);
-	  ST7565_drawbitmapNew(90, 0, BM6_36x58_block, 36, 58, 1);
-	  updateDisplay();
-
-
-	 // ST7565_drawbitmapNew(100, 0, BM9, 45, 64, 1);
-	 // updateDisplay();
-
-
-
-
-
-
-
-
-
-      //updateDisplay();
-
-
-
-
-
-
-//      HAL_GPIO_TogglePin(GPIOC, Blue_Pin);
-//      HAL_Delay(500);
-//      HAL_GPIO_TogglePin(GPIOC, Red_Pin);
-//      HAL_Delay(500);
-//      HAL_GPIO_TogglePin(GPIOC, Green_Pin);
-//      HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
