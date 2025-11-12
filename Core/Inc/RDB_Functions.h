@@ -9,5 +9,6 @@
 #define INC_RDB_FUNCTIONS_H_
 
 void countTestRDBlcd(void);
+void parseDepthVal(int depthValue);
 
 #endif /* INC_RDB_FUNCTIONS_H_ */

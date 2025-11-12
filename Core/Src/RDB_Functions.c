@@ -12,25 +12,47 @@
 
 const unsigned char *depthDigitArray[10]= {BM0_36x58_block, BM1_36x58_block, BM2_36x58_block, BM3_36x58_block, BM4_36x58_block, BM5_36x58_block, BM6_36x58_block,BM7_36x58_block,BM8_36x58_block,BM9_36x58_block};
 
-
-//test function to increment all values, will count to total of 200
+int number;
+//test function to increments all values at the same time.
 void countTestRDBlcd(){
 
 	for(int i=0; i<10; i++){
+		number=i;
 
-
-		HAL_Delay(100);
-		//ST7565_clear();
-		ST7565_fillrect(10, 0, 36, 58, WHITE);
-		//memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
-		//updateDisplay();
-		ST7565_drawbitmapNew(10,0, depthDigitArray[i], 36, 58, 1);
 		updateDisplay();
+		HAL_Delay(300);
+	ST7565_fillrect(5, 5, 36, 58, WHITE);  // left digit rect cover
+   	ST7565_fillrect(40, 5, 36, 58, WHITE); // middle rect cover
+	ST7565_fillrect(75,5, 36, 58, WHITE);  // right rect cover
 
-
+	ST7565_drawbitmapNew(5,15, depthDigitArray[i],  36, 58, 1); //left digit
+    ST7565_drawbitmapNew(40, 15, depthDigitArray[i], 36, 58, 1); //middle digit
+    ST7565_drawbitmapNew(75, 15, depthDigitArray[i], 36, 58, 1); //right digit
 
 	}
 
+}
 
+//function that takes calculated depth value integer and parses it for display
+void parseDepthVal(int depthValue){
+
+	int ones = depthValue % 10;
+	int tens = (depthValue/10) %10;
+	int hundred = depthValue/100;
+
+
+	ST7565_fillrect(5, 5, 36, 58, WHITE);  // left digit rect cover
+   	ST7565_fillrect(40, 5, 36, 58, WHITE); // middle rect cover
+	ST7565_fillrect(75,5, 36, 58, WHITE);  // right rect cover
+
+	ST7565_drawbitmapNew(5,15, depthDigitArray[hundred],  36, 58, 1); //left digit
+    ST7565_drawbitmapNew(40, 15, depthDigitArray[tens], 36, 58, 1); //middle digit
+    ST7565_drawbitmapNew(75, 15, depthDigitArray[ones], 36, 58, 1); //right digit
+	updateDisplay();
 
 }
+
+
+
+
+

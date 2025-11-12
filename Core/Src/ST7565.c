@@ -189,6 +189,8 @@ void ST7565_fillrect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t color)
   ST7565_updateBoundingBox(x, y, x+w, y+h);
 }
 
+
+
 // draw a rectangle
 void ST7565_drawrect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t color)
 {
