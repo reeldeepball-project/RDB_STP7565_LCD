@@ -8,6 +8,7 @@
 
 #include "RDB_depth_digits_36x58.h"
 #include "ST7565.h"
+#include"string.h"
 
 const unsigned char *depthDigitArray[10]= {BM0_36x58_block, BM1_36x58_block, BM2_36x58_block, BM3_36x58_block, BM4_36x58_block, BM5_36x58_block, BM6_36x58_block,BM7_36x58_block,BM8_36x58_block,BM9_36x58_block};
 
@@ -18,11 +19,11 @@ void countTestRDBlcd(){
 	for(int i=0; i<10; i++){
 
 
-		HAL_Delay(500);
+		HAL_Delay(100);
 		//ST7565_clear();
-		//ST7565_drawbitmapNew(10,0, blank, 36, 58, 1);
-		memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
-		updateDisplay();
+		ST7565_fillrect(10, 0, 36, 58, WHITE);
+		//memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
+		//updateDisplay();
 		ST7565_drawbitmapNew(10,0, depthDigitArray[i], 36, 58, 1);
 		updateDisplay();
 

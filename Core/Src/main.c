@@ -115,9 +115,12 @@ int main(void)
   {
 
    countTestRDBlcd();
-   //ST7565_drawbitmapNew(10,0, BM0_36x58_block, 36, 58, 1);
-   // updateDisplay();
-
+//   ST7565_drawbitmapNew(10,0, BM0_36x58_block, 30, 50, 1);
+//   updateDisplay();
+//	  ST7565_drawbitmapNew(10,0, BM6_36x58_block, 36, 58, 1);
+//	  ST7565_drawbitmapNew(50, 0, BM7_36x58_block, 36, 58, 1);
+//	  ST7565_drawbitmapNew(90, 0, BM7_36x58_block, 36, 58, 1);
+//	  updateDisplay();
   }
   /* USER CODE END 3 */
 }
