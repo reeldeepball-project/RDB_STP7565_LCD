@@ -12,13 +12,20 @@
 const unsigned char *depthDigitArray[10]= {BM0_36x58_block, BM1_36x58_block, BM2_36x58_block, BM3_36x58_block, BM4_36x58_block, BM5_36x58_block, BM6_36x58_block,BM7_36x58_block,BM8_36x58_block,BM9_36x58_block};
 
 
+//test function to increment all values, will count to total of 200
 void countTestRDBlcd(){
 
 	for(int i=0; i<10; i++){
 
-		HAL_Delay(200);
+
+		HAL_Delay(500);
+		//ST7565_clear();
+		//ST7565_drawbitmapNew(10,0, blank, 36, 58, 1);
+		memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
+		updateDisplay();
 		ST7565_drawbitmapNew(10,0, depthDigitArray[i], 36, 58, 1);
 		updateDisplay();
+
 
 
 	}

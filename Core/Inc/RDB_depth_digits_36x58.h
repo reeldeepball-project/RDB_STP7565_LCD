@@ -9,6 +9,7 @@
 #define INC_RDB_DEPTH_DIGITS_36X58_H_
 
 
+
 extern const unsigned char BM0_36x58_block[];
 extern const unsigned char BM1_36x58_block[];
 extern const unsigned char BM2_36x58_block[];
@@ -19,6 +20,6 @@ extern const unsigned char BM6_36x58_block[];
 extern const unsigned char BM7_36x58_block[];
 extern const unsigned char BM8_36x58_block[];
 extern const unsigned char BM9_36x58_block[];
-
+extern const unsigned char blank  [];
 
 #endif /* INC_RDB_DEPTH_DIGITS_36X58_H_ */

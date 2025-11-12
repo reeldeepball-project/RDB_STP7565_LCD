@@ -27,7 +27,6 @@ License along with this library.
 #include <string.h>
 
 extern const uint8_t font[];
-//extern uint8_t st7565_buffer[LCD_WIDTH*LCD_HEIGHT/8];
 
 
 
@@ -74,7 +73,7 @@ void ST7565_drawbitmapNew(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w
   ST7565_updateBoundingBox(x, y, x+w, y+h);
 }
 
-// much faster to put the test here, since we've already sorted the points
+
 
 
 void ST7565_drawstring(uint8_t x, uint8_t line, char *c)
@@ -304,18 +303,28 @@ void updateDisplay()
   }
 }
 
-void ST7565_setpixel(uint8_t x, uint8_t y, uint8_t color)
-{  // Calculate the index into the display buffer
-  uint16_t index = (y / 8) * LCD_WIDTH + x;
+//void ST7565_setpixel(uint8_t x, uint8_t y, uint8_t color)
+//{  // Calculate the index into the display buffer
+//  uint16_t index = (y / 8) * LCD_WIDTH + x;
+//
+//  // Set the pixel color in the buffer
+//  if (color == 1) {
+//	st7565_buffer[index] |= (1 << (y % 8));
+//  } else {
+//	st7565_buffer[index] &= ~(1 << (y % 8));
+//  }
+//}
 
-  // Set the pixel color in the buffer
-  if (color == 1) {
-	st7565_buffer[index] |= (1 << (y % 8));
-  } else {
-	st7565_buffer[index] &= ~(1 << (y % 8));
-  }
+void ST7565_setpixel(uint8_t x, uint8_t y, uint8_t color) {
+  if ((x >= LCD_WIDTH) || (y >= LCD_HEIGHT))
+    return;
+
+  // x is which column
+  if (color)
+    st7565_buffer[x+ (y/8)*128] |= (1<<(7-(y%8)));
+  else
+    st7565_buffer[x+ (y/8)*128] &= ~(1<<(7-(y%8)));
 }
-
 
 
 void ST7565_init(void)

@@ -115,6 +115,8 @@ int main(void)
   {
 
    countTestRDBlcd();
+   //ST7565_drawbitmapNew(10,0, BM0_36x58_block, 36, 58, 1);
+   // updateDisplay();
 
   }
   /* USER CODE END 3 */
