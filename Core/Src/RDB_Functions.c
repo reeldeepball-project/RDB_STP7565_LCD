@@ -41,13 +41,13 @@ void parseDepthVal(int depthValue){
 	int hundred = depthValue/100;
 
 
-	ST7565_fillrect(5, 5, 36, 58, WHITE);  // left digit rect cover
-   	ST7565_fillrect(40, 5, 36, 58, WHITE); // middle rect cover
-	ST7565_fillrect(75,5, 36, 58, WHITE);  // right rect cover
+	ST7565_fillrect(5, 0, 36, 48, WHITE);  // left digit rect cover
+   	ST7565_fillrect(40, 0, 36, 48, WHITE); // middle rect cover
+	ST7565_fillrect(75,0, 36, 48, WHITE);  // right rect cover
 
-	ST7565_drawbitmapNew(5,15, depthDigitArray[hundred],  36, 58, 1); //left digit
-    ST7565_drawbitmapNew(40, 15, depthDigitArray[tens], 36, 58, 1); //middle digit
-    ST7565_drawbitmapNew(75, 15, depthDigitArray[ones], 36, 58, 1); //right digit
+	ST7565_drawbitmapNew(5,47, depthDigitArray[hundred],  36, 48, 1); //left digit
+    ST7565_drawbitmapNew(40, 47, depthDigitArray[tens], 36, 58, 1); //middle digit
+    ST7565_drawbitmapNew(75, 47, depthDigitArray[ones], 36, 58, 1); //right digit
 	updateDisplay();
 
 }

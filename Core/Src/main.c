@@ -50,7 +50,7 @@ SPI_HandleTypeDef hspi3;
 
 /* USER CODE BEGIN PV */
 extern uint8_t displayBuffer[LCD_WIDTH*LCD_HEIGHT/8];
-
+int count = 0;
 
 /* USER CODE END PV */
 
@@ -114,13 +114,18 @@ int main(void)
   while (1)
   {
 
-   countTestRDBlcd();
-//   ST7565_drawbitmapNew(10,0, BM0_36x58_block, 30, 50, 1);
-//   updateDisplay();
-//	  ST7565_drawbitmapNew(10,0, BM6_36x58_block, 36, 58, 1);
-//	  ST7565_drawbitmapNew(50, 0, BM7_36x58_block, 36, 58, 1);
-//	  ST7565_drawbitmapNew(90, 0, BM7_36x58_block, 36, 58, 1);
-//	  updateDisplay();
+   //countTestRDBlcd();
+
+   parseDepthVal(count);
+   count ++;
+   if(count > 200){
+	   count = 0;
+   }
+   HAL_Delay(100);
+	  ST7565_drawstring_anywhere(0, 7, "DEPTH"); // x=pixel,y=page
+	  ST7565_drawstring_anywhere(115, 0, "ft");  //
+
+	  updateDisplay();
   }
   /* USER CODE END 3 */
 }

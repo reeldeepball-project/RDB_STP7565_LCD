@@ -66,7 +66,7 @@ void ST7565_drawbitmapNew(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w
   for (j=0; j<h; j++) {
     for (i=0; i<w; i++ ) {
       if (bitmap[i + (j/8) * w] & (1<<(j%8))) {
-        ST7565_setpixel(x+i, y+j, color);
+        ST7565_setpixel(x+i, y-j, color);
       }
     }
   }
@@ -104,16 +104,32 @@ void  ST7565_drawchar(uint8_t x, uint8_t line, char c)
  ST7565_updateBoundingBox(x-5, line*8, x-1, line*8 + 8);
 }
 
-void ST7565_drawstring_anywhere(uint8_t x, uint8_t y, const char* str)
-{
-  uint8_t i = 0;
-  while (str[i] != '\0') {
-	  ST7565_drawchar_anywhere(x, y, str[i]);
-    x += 6;                                            // Adjust the x-coordinate to leave space between characters
-    i++;
+//void ST7565_drawstring_anywhere(uint8_t x, uint8_t y, const char* str)
+//{
+//  uint8_t i = 0;
+//  while (str[i] != '\0') {
+//	  ST7565_drawchar_anywhere(x, y, str[i]);
+//    x += 6;                                            // Adjust the x-coordinate to leave space between characters
+//    i++;
+//  }
+//}
+
+void ST7565_drawstring_anywhere(uint8_t x, uint8_t line, const char *str) {
+  char c;
+  while (1) {
+    c = *str++;
+    if (! c)
+      return;
+    ST7565_drawchar(x, line, c);
+    x += 6; // 6 pixels wide
+    if (x + 6 >= LCD_WIDTH) {
+      x = 0;    // ran out of this line
+      line++;
+    }
+    if (line >= (LCD_HEIGHT/8))
+      return;        // ran out of space :(
   }
 }
-
 
 void ST7565_drawchar_anywhere(uint8_t x, uint8_t y, char c)
 {
@@ -289,7 +305,7 @@ void updateDisplay()
 {
 	//ST7565_command(CMD_SET_ADC_REVERSE);
 	//ST7565_command(CMD_SET_COM_REVERSE);
-    ST7565_command(CMD_SET_DISP_START_LINE);
+    //ST7565_command(CMD_SET_DISP_START_LINE);
   for (uint8_t page = 0; page < LCD_HEIGHT / 8; page++) {
     // Set the page address
     ST7565_command(CMD_SET_PAGE | page);
@@ -347,7 +363,7 @@ void ST7565_init(void)
 	// ADC select
 	ST7565_command(CMD_SET_ADC_NORMAL);
 	// SHL select
-	ST7565_command(CMD_SET_COM_REVERSE);
+	ST7565_command(CMD_SET_COM_NORMAL);
 	// Initial display line
 	ST7565_command(CMD_SET_DISP_START_LINE);
 
@@ -374,7 +390,7 @@ void ST7565_init(void)
 	// ADC select
 	ST7565_command(CMD_SET_ALLPTS_NORMAL);
 	// SHL select
-	ST7565_command(CMD_SET_COM_REVERSE);
+	//ST7565_command(CMD_SET_COM_REVERSE);
 
 
 	ST7565_set_brightness(0x26);        //recommended brightness
@@ -383,6 +399,9 @@ void ST7565_init(void)
 	memset(st7565_buffer, 0, sizeof(st7565_buffer)); // for clearing the display buffer
 
 	ST7565_updateBoundingBox(0, 0, LCD_WIDTH, LCD_HEIGHT);
+
+	//ST7565_drawstring_anywhere(10, 0, "Depth:");
+
 
 
 }
